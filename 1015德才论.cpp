@@ -18,12 +18,21 @@ people ie[100005];
 bool cmp(people a, people b) {
     int sum_a = a.EQ + a.IQ;
     int sum_b = b.EQ + b.IQ;
-    if (sum_a == sum_b && a.EQ == b.EQ)
-        return a.IQ > b.IQ;
-    else if (sum_a == sum_b)
-        return a.EQ > b.EQ;
-    else 
-        return sum_a > sum_b;
+    if (sum_a > sum_b) {
+        return true;
+    } else {
+        return false;
+    }
+    if (sum_a == sum_b && a.EQ > b.EQ) {
+        return true;
+    } else {
+        return false;
+    } 
+    if (sum_a == sum_b && a.EQ == b.EQ && a.num < b.num) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main() {

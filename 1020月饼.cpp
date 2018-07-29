@@ -5,9 +5,9 @@
 using namespace std;
 
 struct _thing {
-    int num;
-    int price;
-    float per;
+    double num;
+    double price;
+    double per;
 } p[10000];
 
 bool cmp(_thing a, _thing b) {
@@ -16,25 +16,24 @@ bool cmp(_thing a, _thing b) {
 
 int main() {
     int n, m;
-    float sum = 0;
+    double sum = 0;
 
     scanf("%d%d", &n, &m);
 
     for (int i = 0; i < n; i++) {
-        scanf("%d", &p[i].num);
+        scanf("%lf", &p[i].num);
     } 
     for (int i = 0; i < n; i++) {
-        scanf("%d", &p[i].price);
+        scanf("%lf", &p[i].price);
         p[i].per = 1.0 * p[i].price / p[i].num;
     }
     
     sort(p, p+n, cmp);
 
     for (int i = 0; i < n; i++) {
-        if (m - p[i].num >= 0) {
+        if (m - p[i].num > 0) {
             m = m - p[i].num;
-            //sum += p[i].price;  要是卖不完的话就糟了，自己的思维还是不够严禁。
-            sum += m * p[i].per;
+            sum += p[i].price;  
         } else {
             sum += m * p[i].per;
             break;

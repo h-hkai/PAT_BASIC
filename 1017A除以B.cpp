@@ -15,7 +15,9 @@ void division(char * src,int n)
         //cout << "t = " << t << endl;
         if(t/n>0 || t==0)        //余数为0要修改商
         {
-            dest[k++] = t/n+48,s = t%n,flag = false;
+            dest[k++] = t/n+48;
+            s = t%n;
+            flag = false;
             // cout << "dest[" << k << "] = " << dest[k] << endl;
             // cout << "flag = " << flag << endl;
         }
